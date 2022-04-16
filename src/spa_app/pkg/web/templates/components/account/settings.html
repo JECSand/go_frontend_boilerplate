@@ -1,0 +1,43 @@
+
+<div class="headercontainer">
+    {{if .Auth.Authenticated}}
+    <h2 class="w3-wide">Account Settings</h2>
+    {{else}}
+    <h2 class="w3-wide">Account Settings</h2>
+    {{end}}
+
+</div>
+
+
+<div class="text2">
+    {{if .Auth.Authenticated}}
+
+
+    <div class="row">
+        <div class="column side">
+            <h2>Options</h2>
+            <a class="active" href="/account/settings">Change User Info</a><br>
+            <a href="/account/settings/password">Change Password</a><br>
+            <a href="/account/settings/permissions">Change Permissions</a><br>
+        </div>
+
+        <div class="column middle">
+            {{ template "templates/components/forms/form.html" .Form }}
+        </div>
+
+        <div class="column side">
+            <h2>Current Info</h2>
+            <a> Username: {{ .Auth.Username }}</a><br>
+            <a> Role: {{ .Auth.Role }}</a><br>
+            <a> First Name: {{ .User.FirstName }}</a><br>
+            <a> Last Name: {{ .User.LastName }}</a><br>
+            <a> Email: {{ .User.Email }}</a><br>
+        </div>
+
+    </div>
+
+
+    {{else}}
+    <a href="/login">Please login to view</a><br>
+    {{end}}
+</div>

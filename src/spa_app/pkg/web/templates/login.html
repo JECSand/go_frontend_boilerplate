@@ -1,0 +1,15 @@
+{{ template "templates/components/header.html" . }}
+<div class="headercontainer">
+
+    <h2>{{ .Route }}</h2>
+    {{if .Auth.Authenticated}}
+    <h2 class="w3-wide">Welcome</h2>
+    {{else}}
+    <h2 class="w3-wide">Login</h2>
+    {{end}}
+
+
+</div>
+{{ template "templates/components/forms/login.html" . }}
+
+{{ template "templates/components/footer.html" . }}

@@ -1,0 +1,32 @@
+{{ if .Auth.Authenticated }}
+    <div class="text2">
+        <h2>Update {{ .SubRoute | Upper }}</h2>
+        <form method="PATCH" id="form1">
+            {{ if eq .SubRoute "settings" }}
+                <label for="username">User Name:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <label for="first_name">First name:</label><br>
+                <input type="text" id="first_name" name="first_name"><br>
+                <label for="last_name">Last name:</label><br>
+                <input type="text" id="last_name" name="last_name"><br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email"><br>
+            {{ else if eq .SubRoute "users" }}
+                <label for="username">User Name:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <label for="first_name">First name:</label><br>
+                <input type="text" id="first_name" name="first_name"><br>
+                <label for="last_name">Last name:</label><br>
+                <input type="text" id="last_name" name="last_name"><br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email"><br>
+            {{ else if eq .SubRoute "groups" }}
+                <label for="groupname">Group Name:</label><br>
+                <input type="text" id="groupname" name="groupname"><br>
+            {{ end }}
+        </form>
+        <button type="submit" form="form1" value="Submit">Submit</button>
+    </div>
+{{else}}
+    <a href="/login">Please login to view</a><br>
+{{end}}

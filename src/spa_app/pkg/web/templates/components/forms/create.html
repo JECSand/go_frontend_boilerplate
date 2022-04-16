@@ -1,0 +1,27 @@
+{{if .Auth.Authenticated}}
+    <div class="container">
+        <h2>Create {{ .SubRoute | Upper }}</h2>
+        <form method="POST" id="form1">
+            {{ if eq .SubRoute "users" }}
+                <label for="username">User Name:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"><br>
+                <label for="cpassword">Confirm Password:</label><br>
+                <input type="password" id="cpassword" name="cpassword"><br>
+                <label for="first_name">First name:</label><br>
+                <input type="text" id="first_name" name="first_name"><br>
+                <label for="last_name">Last name:</label><br>
+                <input type="text" id="last_name" name="last_name"><br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email">
+            {{ else if eq .SubRoute "groups" }}
+                <label for="groupname">Group Name:</label><br>
+                <input type="text" id="groupname" name="groupname"><br>
+            {{ end }}
+        </form>
+        <button type="submit" form="form1" value="Submit">Submit</button>
+    </div>
+{{ else }}
+    <a href="/login">Please login to view</a><br>
+{{ end }}

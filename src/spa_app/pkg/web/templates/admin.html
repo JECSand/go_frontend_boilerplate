@@ -1,0 +1,30 @@
+{{ template "templates/components/header.html" . }}
+<div>
+    {{ if .Auth.Authenticated }}
+        {{ if eq .Auth.Role "master_admin" "admin" }}
+            <div class="headercontainer">
+                <h2 class="w3-wide">Admin</h2>
+            </div>
+        {{ if eq .Route "admin" }}
+            <div class="text2">
+                <a href="/admin/usermenu">Manage Users</a><br>
+                {{ if eq .Auth.Role "master_admin" }}
+                    <a href="/admin/groupmenu">Manage Groups</a><br>
+                {{ else }}
+                    <a href="/admin/groupmenu">Manage Group</a><br>
+                {{ end }}
+
+
+            </div>
+        {{ end }}
+        {{ if eq .SubRoute "settings" }}
+
+             {{ template "templates/components/admin/adminusers.html" . }}
+         {{ end }}
+
+
+        {{ end }}
+
+    {{ end }}
+</div>
+{{ template "templates/components/footer.html" . }}

@@ -1,0 +1,39 @@
+{{ template "templates/components/header.html" . }}
+
+<div class="headercontainer">
+    {{if .Auth.Authenticated}}
+    <h2 class="w3-wide">Table Settings</h2>
+    {{else}}
+    <h2 class="w3-wide">Table Settings</h2>
+    {{end}}
+
+</div>
+
+
+<div class="text2">
+    {{if .Auth.Authenticated}}
+
+
+    <div class="row">
+        <div class="column side">
+            <h2>Options</h2>
+
+        </div>
+
+        <div class="column middle">
+
+
+        </div>
+
+        <div class="column side">
+            <h2>Current Info</h2>
+
+        </div>
+
+    </div>
+
+
+    {{else}}
+    <a href="/login">Please login to view</a><br>
+    {{end}}
+{{ template "templates/components/footer.html" . }}

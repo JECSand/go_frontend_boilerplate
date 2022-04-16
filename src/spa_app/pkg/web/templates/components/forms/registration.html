@@ -1,0 +1,22 @@
+{{if .Auth.Authenticated}}
+    <h1>Welcome, {{ .Auth.Username }}</h1>
+{{else}}
+    <div class="container">
+        <form method="POST" id="form1">
+            <label for="username">User Name:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+            <label for="cpassword">Confirm Password:</label><br>
+            <input type="password" id="cpassword" name="cpassword"><br>
+            <label for="first_name">First name:</label><br>
+            <input type="text" id="first_name" name="first_name"><br>
+            <label for="last_name">Last name:</label><br>
+            <input type="text" id="last_name" name="last_name"><br>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email">
+        </form>
+        <button type="submit" form="form1" value="Submit">Submit</button>
+        <!--<script src="/static/js/signup-form.js"></script>-->
+    </div>
+{{end}}

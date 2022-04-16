@@ -1,0 +1,29 @@
+<div class="nav">
+    <link rel="stylesheet" href="/static/styles/nav.css" />
+    <ul class="topnav">
+        <li><a class="active" href="/">Home</a></li>
+
+        <div class="dropdown">
+            <li class="dropdown">
+                <a href="/variable" href="javascript:void(0)" class="dropbtn">Variable</a>
+                <div class="dropdown-content">
+                    <a href="/variable/dawg">dawg</a>
+                    <a href="/variable/buddy">buddy</a>
+                    <a href="/variable/boy">boy</a>
+                </div>
+            </li>
+        </div>
+        <li><a href="/about">About</a></li>
+        {{if .Auth.Authenticated}}
+        <li class="right"><a href="/logout">Logout</a></li>
+        <li class="right"><a href="/account">My Account</a></li>
+            {{if eq .Auth.Role "master_admin" }}
+                <li class="right"><a href="/admin">Admin</a></li>
+            {{end}}
+
+        {{else}}
+        <li class="right"><a href="/login">Login</a></li>
+        {{end}}
+    </ul>
+
+</div>

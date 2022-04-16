@@ -1,0 +1,9 @@
+<div class="form">
+    <h2>{{ .Type | Upper }} {{ .Name | Upper }}</h2>
+    <form method={{ .Method }} id={{ .Id }}>
+        {{range .Fields}}
+            {{ template "templates/components/inputs/fields.html" . }}
+        {{end}}
+    </form>
+    {{ template "templates/components/inputs/buttons.html" . }}
+</div>
